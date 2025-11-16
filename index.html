@@ -64,71 +64,90 @@
 
     <!-- Section 2: Sobre / Canadá -->
     <section id="about" class="about-section">
-        <div class="section-container">
-
-            <div class="about-intro">
-                <span class="section-tag">Sobre</span>
-                <h2 class="section-title">Uma Jornada de Código e Cultura</h2>
+        <!-- Parallax Background Layers -->
+        <div class="parallax-container">
+            <div class="parallax-layer parallax-bg" data-speed="0.2">
+                <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1920&h=1080&fit=crop&q=80"
+                     alt="Vancouver Skyline" class="parallax-image">
             </div>
+            <div class="parallax-layer parallax-mid" data-speed="0.5">
+                <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1920&h=1080&fit=crop&q=80"
+                     alt="Canadian Rockies" class="parallax-image">
+            </div>
+            <div class="parallax-overlay"></div>
+        </div>
 
-            <div class="about-content">
+        <div class="section-container">
+            <div class="about-content-wrapper">
 
-                <!-- Text Content -->
-                <div class="about-text">
-                    <div class="about-block">
-                        <h3 class="about-heading">Paixão por Tecnologia</h3>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                        </p>
-                    </div>
-
-                    <div class="about-block">
-                        <h3 class="about-heading">Inspiração Canadense</h3>
-                        <p>
-                            Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                            quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-                            voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error.
-                        </p>
-                    </div>
-
-                    <div class="about-block">
-                        <h3 class="about-heading">Visão Global</h3>
-                        <p>
-                            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                            praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                            excepturi sint occaecati cupiditate non provident.
-                        </p>
-                    </div>
+                <div class="about-intro">
+                    <span class="section-tag">Sobre</span>
+                    <h2 class="section-title">Uma Jornada de Código e Cultura</h2>
                 </div>
 
-                <!-- Visual Elements -->
-                <div class="about-visual">
-                    <div class="canada-element flag-element">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
-                             alt="Bandeira do Canadá"
-                             class="canada-flag">
+                <div class="about-grid">
+
+                    <div class="about-text-column">
+                        <div class="about-block">
+                            <h3 class="about-heading">Paixão por Tecnologia</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                            </p>
+                        </div>
+
+                        <div class="about-block">
+                            <h3 class="about-heading">Inspiração Canadense</h3>
+                            <p>
+                                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+                                quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+                                voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error.
+                            </p>
+                        </div>
+
+                        <div class="about-block">
+                            <h3 class="about-heading">Visão Global</h3>
+                            <p>
+                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+                                praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                excepturi sint occaecati cupiditate non provident.
+                            </p>
+                        </div>
                     </div>
 
-                    <div class="canada-element maple-element">
-                        <svg class="maple-leaf" viewBox="0 0 200 200" fill="currentColor">
-                            <path d="M100,20 L110,70 L140,60 L120,90 L160,100 L120,110 L140,140 L110,130 L100,180 L90,130 L60,140 L80,110 L40,100 L80,90 L60,60 L90,70 Z"/>
-                        </svg>
+                    <div class="about-stats-column">
+                        <div class="stats-grid">
+                            <div class="stat-card" data-speed="0.3">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Projetos Concluídos</div>
+                                <div class="stat-description">Soluções entregues com excelência</div>
+                            </div>
+
+                            <div class="stat-card" data-speed="0.4">
+                                <div class="stat-number">5+</div>
+                                <div class="stat-label">Anos de Experiência</div>
+                                <div class="stat-description">Desenvolvendo software robusto</div>
+                            </div>
+
+                            <div class="stat-card" data-speed="0.35">
+                                <div class="stat-number">20+</div>
+                                <div class="stat-label">Tecnologias</div>
+                                <div class="stat-description">Stack completo e moderno</div>
+                            </div>
+                        </div>
+
+                        <div class="canada-badge" data-speed="0.6">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
+                                 alt="Canada" class="badge-flag">
+                            <div class="badge-text">
+                                <span class="badge-title">Based in</span>
+                                <span class="badge-location">Canada</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="canada-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Projetos</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Anos</span>
-                        </div>
-                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -345,25 +364,98 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-parallax-bg" data-speed="0.1"></div>
+
         <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3 class="footer-title">Vamos Conversar</h3>
-                    <p class="footer-description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Entre em contato para discutir seu próximo projeto.
+            <div class="footer-main">
+
+                <div class="footer-brand">
+                    <h2 class="footer-logo">Portfolio</h2>
+                    <p class="footer-tagline">
+                        Transformando ideias em experiências digitais memoráveis.
+                        Disponível para novos projetos e colaborações.
                     </p>
+                    <div class="footer-cta">
+                        <a href="mailto:contato@exemplo.com" class="footer-btn">
+                            <span class="btn-icon">✉</span>
+                            <span class="btn-text">Iniciar Conversa</span>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <a href="mailto:email@exemplo.com" class="footer-link">Email</a>
-                    <a href="https://github.com" target="_blank" class="footer-link">GitHub</a>
-                    <a href="https://linkedin.com" target="_blank" class="footer-link">LinkedIn</a>
-                    <a href="https://twitter.com" target="_blank" class="footer-link">Twitter</a>
+
+                <div class="footer-columns">
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Navegação</h4>
+                        <ul class="footer-links-list">
+                            <li><a href="#home" class="footer-link">Início</a></li>
+                            <li><a href="#about" class="footer-link">Sobre</a></li>
+                            <li><a href="#tech" class="footer-link">Tecnologias</a></li>
+                            <li><a href="#projects" class="footer-link">Projetos</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Redes Sociais</h4>
+                        <ul class="footer-links-list">
+                            <li>
+                                <a href="https://github.com" target="_blank" rel="noopener" class="footer-link">
+                                    <span class="link-icon">→</span> GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener" class="footer-link">
+                                    <span class="link-icon">→</span> LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com" target="_blank" rel="noopener" class="footer-link">
+                                    <span class="link-icon">→</span> Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-link">
+                                    <span class="link-icon">→</span> Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Localização</h4>
+                        <ul class="footer-info-list">
+                            <li class="footer-info-item">
+                                <span class="info-label">País</span>
+                                <span class="info-value">Canadá 🍁</span>
+                            </li>
+                            <li class="footer-info-item">
+                                <span class="info-label">Timezone</span>
+                                <span class="info-value">EST (UTC-5)</span>
+                            </li>
+                            <li class="footer-info-item">
+                                <span class="info-label">Idiomas</span>
+                                <span class="info-value">PT, EN, FR</span>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
+
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Portfolio. Todos os direitos reservados.</p>
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        &copy; 2024 <strong>Portfolio</strong>. Todos os direitos reservados.
+                    </p>
+                    <div class="footer-legal">
+                        <a href="#" class="legal-link">Política de Privacidade</a>
+                        <span class="separator">•</span>
+                        <a href="#" class="legal-link">Termos de Uso</a>
+                    </div>
+                </div>
             </div>
+
         </div>
     </footer>
 

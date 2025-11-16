@@ -10,6 +10,90 @@ gsap.config({
 });
 
 // ================================
+// PARALLAX REAL - MÚLTIPLAS CAMADAS
+// ================================
+
+function initParallaxLayers() {
+    // Parallax nas camadas de background da seção About
+    const parallaxBg = document.querySelector('.parallax-bg');
+    const parallaxMid = document.querySelector('.parallax-mid');
+
+    if (parallaxBg) {
+        gsap.to(parallaxBg, {
+            scrollTrigger: {
+                trigger: '.about-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1, // Movimento suave e sincronizado com scroll
+            },
+            y: '30%', // Move mais devagar (velocidade 0.3x)
+            ease: 'none'
+        });
+    }
+
+    if (parallaxMid) {
+        gsap.to(parallaxMid, {
+            scrollTrigger: {
+                trigger: '.about-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            y: '50%', // Move mais rápido (velocidade 0.5x)
+            ease: 'none'
+        });
+    }
+
+    // Parallax nos cards de stats (movimento individual)
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        const speed = parseFloat(card.dataset.speed) || 0.3;
+
+        gsap.to(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            y: `${speed * 100}%`,
+            ease: 'none'
+        });
+    });
+
+    // Parallax no badge do Canadá
+    const canadaBadge = document.querySelector('.canada-badge');
+    if (canadaBadge) {
+        gsap.to(canadaBadge, {
+            scrollTrigger: {
+                trigger: canadaBadge,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            y: '60%',
+            rotation: 2,
+            ease: 'none'
+        });
+    }
+
+    // Parallax no footer background
+    const footerBg = document.querySelector('.footer-parallax-bg');
+    if (footerBg) {
+        gsap.to(footerBg, {
+            scrollTrigger: {
+                trigger: '.footer',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1,
+            },
+            y: '-20%',
+            ease: 'none'
+        });
+    }
+}
+
+// ================================
 // NAVIGATION SCROLL EFFECT
 // ================================
 
@@ -66,10 +150,23 @@ function initHeroAnimations() {
             trigger: '.hero',
             start: 'top top',
             end: 'bottom top',
-            scrub: 1
+            scrub: 1.5
         },
         opacity: 0.3,
-        scale: 1.2
+        scale: 1.3,
+        y: '20%'
+    });
+
+    // Parallax nas partículas do hero
+    gsap.to('.hero-particles', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 2
+        },
+        y: '40%',
+        opacity: 0
     });
 }
 
@@ -95,7 +192,7 @@ function initAboutAnimations() {
     // Animação dos blocos de texto
     gsap.to('.about-block', {
         scrollTrigger: {
-            trigger: '.about-text',
+            trigger: '.about-text-column',
             start: 'top 70%',
             end: 'top 20%',
             toggleActions: 'play none none reverse'
@@ -107,81 +204,48 @@ function initAboutAnimations() {
         ease: 'power3.out'
     });
 
-    // Animação da bandeira do Canadá
-    gsap.to('.flag-element', {
-        scrollTrigger: {
-            trigger: '.about-visual',
-            start: 'top 70%',
-            end: 'top 20%',
-            toggleActions: 'play none none reverse'
-        },
-        opacity: 1,
-        scale: 1,
-        duration: 1.5,
-        ease: 'elastic.out(1, 0.8)'
+    // Animação dos stat cards
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        gsap.to(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                end: 'top 40%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: index * 0.15,
+            ease: 'power3.out'
+        });
     });
 
-    // Animação da folha de maple
-    gsap.to('.maple-element', {
+    // Animação do badge do Canadá
+    gsap.to('.canada-badge', {
         scrollTrigger: {
-            trigger: '.about-visual',
-            start: 'top 70%',
-            end: 'top 20%',
-            toggleActions: 'play none none reverse'
-        },
-        opacity: 1,
-        rotation: 360,
-        duration: 2,
-        ease: 'power2.out',
-        delay: 0.3
-    });
-
-    // Rotação contínua suave da folha de maple
-    gsap.to('.maple-leaf', {
-        scrollTrigger: {
-            trigger: '.about-visual',
-            start: 'top 70%',
-            end: 'bottom top',
-            scrub: 1
-        },
-        rotation: 720,
-        ease: 'none'
-    });
-
-    // Animação das estatísticas
-    gsap.to('.canada-stats', {
-        scrollTrigger: {
-            trigger: '.about-visual',
-            start: 'top 70%',
-            end: 'top 20%',
+            trigger: '.canada-badge',
+            start: 'top 85%',
+            end: 'top 40%',
             toggleActions: 'play none none reverse'
         },
         opacity: 1,
         y: 0,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 0.5
+        duration: 1.2,
+        ease: 'back.out(1.4)'
     });
 
-    // Parallax dos elementos visuais
-    gsap.to('.flag-element', {
+    // Efeito de zoom nas imagens parallax ao scroll
+    gsap.to('.parallax-image', {
         scrollTrigger: {
             trigger: '.about-section',
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1
+            scrub: 1.5
         },
-        y: -50
-    });
-
-    gsap.to('.maple-element', {
-        scrollTrigger: {
-            trigger: '.about-section',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1
-        },
-        y: -80
+        scale: 1.1,
+        ease: 'none'
     });
 }
 
@@ -222,6 +286,17 @@ function initTechAnimations() {
             ease: 'power3.out'
         });
 
+        // Parallax leve em cada card
+        gsap.to(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1
+            },
+            y: -20
+        });
+
         // Efeito de hover com GSAP para suavidade extra
         card.addEventListener('mouseenter', () => {
             gsap.to(card.querySelector('.tech-icon'), {
@@ -248,7 +323,7 @@ function initTechAnimations() {
             trigger: '.tech-section',
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 1
+            scrub: 1.5
         },
         y: -30
     });
@@ -292,15 +367,27 @@ function initProjectsAnimations() {
             ease: 'power3.out'
         });
 
-        // Parallax individual em cada card
+        // Parallax individual em cada card (efeito profundidade)
         gsap.to(card.querySelector('.project-image'), {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1.5
+            },
+            y: -30,
+            scale: 1.05
+        });
+
+        // Parallax no conteúdo do card (velocidade diferente)
+        gsap.to(card.querySelector('.project-content'), {
             scrollTrigger: {
                 trigger: card,
                 start: 'top bottom',
                 end: 'bottom top',
                 scrub: 1
             },
-            y: -20
+            y: -15
         });
     });
 }
@@ -369,47 +456,6 @@ function initParticles() {
 }
 
 // ================================
-// CURSOR CUSTOMIZADO (OPCIONAL)
-// ================================
-
-function initCustomCursor() {
-    const cursor = document.createElement('div');
-    cursor.classList.add('custom-cursor');
-    document.body.appendChild(cursor);
-
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    // Animação suave do cursor
-    gsap.ticker.add(() => {
-        cursorX += (mouseX - cursorX) * 0.1;
-        cursorY += (mouseY - cursorY) * 0.1;
-
-        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
-    });
-
-    // Efeito em elementos interativos
-    const interactiveElements = document.querySelectorAll('a, button, .tech-card, .project-card');
-
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.transform += ' scale(2)';
-        });
-
-        el.addEventListener('mouseleave', () => {
-            cursor.style.transform = cursor.style.transform.replace('scale(2)', '');
-        });
-    });
-}
-
-// ================================
 // LOADING ANIMATION
 // ================================
 
@@ -449,6 +495,29 @@ function initSectionReveals() {
 }
 
 // ================================
+// FOOTER ANIMATIONS
+// ================================
+
+function initFooterAnimations() {
+    const footerElements = gsap.utils.toArray('.footer-brand, .footer-column');
+
+    footerElements.forEach((el, index) => {
+        gsap.from(el, {
+            scrollTrigger: {
+                trigger: '.footer',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            delay: index * 0.1,
+            ease: 'power3.out'
+        });
+    });
+}
+
+// ================================
 // INICIALIZAÇÃO
 // ================================
 
@@ -457,14 +526,13 @@ function init() {
     initLoadingAnimation();
     initParticles();
     initHeroAnimations();
+    initParallaxLayers(); // ← PARALLAX REAL!
     initAboutAnimations();
     initTechAnimations();
     initProjectsAnimations();
+    initFooterAnimations();
     initSmoothScroll();
     initSectionReveals();
-
-    // Cursor customizado (opcional - pode comentar se não quiser)
-    // initCustomCursor();
 
     // ScrollTrigger refresh após todas as animações
     ScrollTrigger.refresh();
@@ -491,7 +559,7 @@ window.addEventListener('resize', () => {
 // ================================
 
 // Preload de imagens críticas
-const criticalImages = document.querySelectorAll('.hero img, .about-visual img');
+const criticalImages = document.querySelectorAll('.hero img, .parallax-image');
 criticalImages.forEach(img => {
     const src = img.getAttribute('src');
     if (src) {
@@ -520,18 +588,7 @@ if ('IntersectionObserver' in window) {
     lazyImages.forEach(img => imageObserver.observe(img));
 }
 
-// ================================
-// DEBUG MODE (Desenvolvimento)
-// ================================
-
-// Descomentar para ver os triggers do ScrollTrigger
-// ScrollTrigger.create({
-//     trigger: 'body',
-//     start: 'top top',
-//     end: 'bottom bottom',
-//     markers: true
-// });
-
-console.log('🎬 Portfolio Cinematográfico carregado com sucesso!');
+console.log('🎬 Portfolio Cinematográfico ATUALIZADO!');
 console.log('📦 GSAP + ScrollTrigger ativos');
-console.log('✨ Todas as animações inicializadas');
+console.log('✨ PARALLAX REAL implementado');
+console.log('🚀 Todas as animações inicializadas');
