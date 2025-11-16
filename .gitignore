@@ -1,3 +1,45 @@
-vendor/
-composer.lock
-phpunit.xml
+# Sistema Operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Node (caso adicione build tools no futuro)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build / Dist
+dist/
+build/
+*.min.js
+*.min.css
+
+# Logs
+logs/
+*.log
+
+# Temporários
+tmp/
+temp/
+*.tmp
+
+# Ambiente
+.env
+.env.local
+.env.*.local
