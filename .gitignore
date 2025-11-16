@@ -43,3 +43,4 @@ temp/
 .env
 .env.local
 .env.*.local
+*.tar.gz
