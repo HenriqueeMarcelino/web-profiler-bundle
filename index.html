@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
@@ -64,15 +64,25 @@
 
     <!-- Section 2: Sobre / Canadá -->
     <section id="about" class="about-section">
-        <!-- Parallax Background Layers -->
+        <!-- Crossfade Background Images (Calgary) -->
         <div class="parallax-container">
-            <div class="parallax-layer parallax-bg" data-speed="0.2">
-                <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=1920&h=1080&fit=crop&q=80"
-                     alt="Vancouver Skyline" class="parallax-image">
-            </div>
-            <div class="parallax-layer parallax-mid" data-speed="0.5">
-                <img src="https://images.unsplash.com/photo-1517935706615-2717063c2225?w=1920&h=1080&fit=crop&q=80"
-                     alt="Canadian Rockies" class="parallax-image">
+            <div class="crossfade-images">
+                <div class="crossfade-image active">
+                    <img src="https://images.unsplash.com/photo-1518608159586-62f28d37e8bc?w=1920&h=1080&fit=crop&q=80"
+                         alt="Calgary Tower" class="parallax-image">
+                </div>
+                <div class="crossfade-image">
+                    <img src="https://images.unsplash.com/photo-1519659528534-7fd733a832a0?w=1920&h=1080&fit=crop&q=80"
+                         alt="Calgary Downtown" class="parallax-image">
+                </div>
+                <div class="crossfade-image">
+                    <img src="https://images.unsplash.com/photo-1503184828029-7f0980a0c77c?w=1920&h=1080&fit=crop&q=80"
+                         alt="Bow River Calgary" class="parallax-image">
+                </div>
+                <div class="crossfade-image">
+                    <img src="https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=1920&h=1080&fit=crop&q=80"
+                         alt="Calgary Skyline Night" class="parallax-image">
+                </div>
             </div>
             <div class="parallax-overlay"></div>
         </div>
@@ -82,36 +92,36 @@
 
                 <div class="about-intro">
                     <span class="section-tag">Sobre</span>
-                    <h2 class="section-title">Uma Jornada de Código e Cultura</h2>
+                    <h2 class="section-title">Em Busca de Novas Oportunidades</h2>
                 </div>
 
                 <div class="about-grid">
 
                     <div class="about-text-column">
                         <div class="about-block">
-                            <h3 class="about-heading">Paixão por Tecnologia</h3>
+                            <h3 class="about-heading">Desenvolvedor Full Stack</h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                                Apaixonado por criar experiências digitais que fazem a diferença.
+                                Especializado em arquiteturas modernas, clean code e soluções escaláveis
+                                que resolvem problemas reais de negócio.
                             </p>
                         </div>
 
                         <div class="about-block">
-                            <h3 class="about-heading">Inspiração Canadense</h3>
+                            <h3 class="about-heading">Próximo Destino: Canadá</h3>
                             <p>
-                                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
-                                quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
-                                voluptas nulla pariatur. Sed ut perspiciatis unde omnis iste natus error.
+                                Ativamente procurando oportunidades no Canadá, especialmente em Calgary e região.
+                                Aberto a posições que ofereçam visa sponsorship (LMIA) para profissionais de tech.
+                                Pronto para contribuir com equipes inovadoras e colaborativas.
                             </p>
                         </div>
 
                         <div class="about-block">
-                            <h3 class="about-heading">Visão Global</h3>
+                            <h3 class="about-heading">Visão Global, Impacto Local</h3>
                             <p>
-                                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
-                                praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
-                                excepturi sint occaecati cupiditate non provident.
+                                Experiência trabalhando com times internacionais e adaptabilidade para
+                                novos ambientes. Forte capacidade de comunicação em inglês e português,
+                                com francês intermediário em desenvolvimento.
                             </p>
                         </div>
                     </div>
@@ -141,8 +151,9 @@
                             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg"
                                  alt="Canada" class="badge-flag">
                             <div class="badge-text">
-                                <span class="badge-title">Based in</span>
-                                <span class="badge-location">Canada</span>
+                                <span class="badge-title">Seeking opportunities in</span>
+                                <span class="badge-location">Calgary, Canada 🍁</span>
+                                <span class="badge-visa">Open to Visa Sponsorship</span>
                             </div>
                         </div>
                     </div>
@@ -157,11 +168,11 @@
         <div class="section-container">
 
             <div class="tech-intro">
-                <span class="section-tag">Stack</span>
-                <h2 class="section-title">Tecnologias & Ferramentas</h2>
+                <span class="section-tag">Tech Stack</span>
+                <h2 class="section-title">Ferramentas que Domino</h2>
                 <p class="section-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Ferramentas modernas para criar experiências excepcionais.
+                    Stack moderna e versátil para entregar soluções robustas,
+                    escaláveis e de alto desempenho em qualquer ambiente.
                 </p>
             </div>
 

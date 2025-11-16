@@ -117,44 +117,53 @@ window.addEventListener('scroll', () => {
 // ================================
 
 function initHeroAnimations() {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-    // Animação sequencial de entrada
+    // Animação IMPACTANTE de entrada
     tl.to('.hero-subtitle', {
         opacity: 1,
-        duration: 1,
-        delay: 0.3
+        y: 0,
+        duration: 1.2,
+        delay: 0.2,
+        ease: 'back.out(1.4)'
     })
     .to('.hero-title-line', {
         opacity: 1,
         y: 0,
-        duration: 1.2,
-        stagger: 0.15
-    }, '-=0.5')
+        rotationX: 0,
+        duration: 1.4,
+        stagger: 0.12,
+        ease: 'power4.out'
+    }, '-=0.8')
     .to('.hero-description', {
         opacity: 1,
-        duration: 1
-    }, '-=0.8')
+        y: 0,
+        duration: 1.2,
+        ease: 'power3.out'
+    }, '-=1')
     .to('.hero-cta', {
         opacity: 1,
-        duration: 1
-    }, '-=0.6')
+        scale: 1,
+        duration: 0.8,
+        ease: 'back.out(1.7)'
+    }, '-=0.8')
     .to('.scroll-indicator', {
         opacity: 1,
         duration: 1
     }, '-=0.5');
 
-    // Efeito parallax no hero background
+    // Efeito parallax FORTE no hero background durante scroll
     gsap.to('.hero-gradient', {
         scrollTrigger: {
             trigger: '.hero',
             start: 'top top',
             end: 'bottom top',
-            scrub: 1.5
+            scrub: 1
         },
-        opacity: 0.3,
-        scale: 1.3,
-        y: '20%'
+        opacity: 0,
+        scale: 1.5,
+        y: '30%',
+        filter: 'blur(20px)'
     });
 
     // Parallax nas partículas do hero
@@ -163,10 +172,80 @@ function initHeroAnimations() {
             trigger: '.hero',
             start: 'top top',
             end: 'bottom top',
-            scrub: 2
+            scrub: 1.5
         },
-        y: '40%',
-        opacity: 0
+        y: '50%',
+        opacity: 0,
+        scale: 0.5
+    });
+
+    // Fade out e blur do conteúdo do hero ao scrollar
+    gsap.to('.hero-content', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1
+        },
+        opacity: 0,
+        y: -100,
+        filter: 'blur(10px)'
+    });
+
+    // Zoom out no hero inteiro
+    gsap.to('.hero', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.5
+        },
+        scale: 0.95
+    });
+}
+
+// ================================
+// CROSSFADE IMAGES (Calgary Holographic Effect)
+// ================================
+
+function initCrossfadeImages() {
+    const images = document.querySelectorAll('.crossfade-image');
+    if (images.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Crossfade baseado no scroll
+    ScrollTrigger.create({
+        trigger: '.about-section',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1,
+        onUpdate: (self) => {
+            const progress = self.progress;
+            const totalImages = images.length;
+            const newIndex = Math.floor(progress * (totalImages - 0.001));
+
+            if (newIndex !== currentIndex && newIndex < totalImages) {
+                // Remove active de todas
+                images.forEach(img => img.classList.remove('active'));
+                // Adiciona active na nova
+                images[newIndex].classList.add('active');
+                currentIndex = newIndex;
+            }
+        }
+    });
+
+    // Parallax nas imagens ao scrollar
+    gsap.to('.parallax-image', {
+        scrollTrigger: {
+            trigger: '.about-section',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5
+        },
+        scale: 1.15,
+        y: '10%',
+        ease: 'none'
     });
 }
 
@@ -234,18 +313,6 @@ function initAboutAnimations() {
         y: 0,
         duration: 1.2,
         ease: 'back.out(1.4)'
-    });
-
-    // Efeito de zoom nas imagens parallax ao scroll
-    gsap.to('.parallax-image', {
-        scrollTrigger: {
-            trigger: '.about-section',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 1.5
-        },
-        scale: 1.1,
-        ease: 'none'
     });
 }
 
@@ -526,6 +593,7 @@ function init() {
     initLoadingAnimation();
     initParticles();
     initHeroAnimations();
+    initCrossfadeImages(); // ← Efeito holográfico Calgary!
     initParallaxLayers(); // ← PARALLAX REAL!
     initAboutAnimations();
     initTechAnimations();
